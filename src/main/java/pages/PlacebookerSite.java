@@ -15,4 +15,6 @@ public class PlacebookerSite {
     }
 
     public MainPage mainPage() { return new MainPage(webDriver); }
+
+    public SearchPlacePage searchPlacePage() { return new SearchPlacePage(webDriver); }
 }

@@ -19,13 +19,13 @@ public class MainPage {
     private static final String AVAILABLE_DAYS_SELECTOR = "[aria-disabled=\"false\"]";
 
     @FindBy(css = "[data-testid=\"browse-places-btn\"]")
-    WebElement browsePlacesButton;
+    private WebElement browsePlacesButton;
 
     @FindBy(css = "[data-testid=\"date-picker-input\"]")
-    WebElement datePicker;
+    private WebElement datePicker;
 
     @FindBy(css = "[aria-label=\"Next Month\"]")
-    WebElement nextMonthButton;
+    private WebElement nextMonthButton;
 
     public MainPage(WebDriver webDriver) {
         this.webDriver = webDriver;
@@ -33,7 +33,7 @@ public class MainPage {
     }
 
     public void chooseRandomDate() {
-        ArrayList<WebElement> availableDaysInMonth = new ArrayList<WebElement>();                                       //list for available dates
+        ArrayList<WebElement> availableDaysInMonth = new ArrayList<WebElement>();                                                //list for available dates
         List<WebElement> allDaysInMonth = webDriver.findElement(By.cssSelector(DATEPICKER_MONTH_CLASS))
                 .findElements(By.cssSelector(DATEPICKER_WEEK_CLASS));                                                   //get all weeks
         for (WebElement webElement : allDaysInMonth) {
@@ -53,6 +53,4 @@ public class MainPage {
     public void selectNextMonth() {
         nextMonthButton.click();
     }
-
-
 }
