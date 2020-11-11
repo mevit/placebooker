@@ -40,9 +40,7 @@ public class LoginPage {
         emailField.sendKeys(USER_EMAIL);
     }
 
-    public void clickNextAfterEmail() {
-        nextLoginInputButton.click();
-    }
+    public void clickNextAfterEmail() { nextLoginInputButton.click(); }
 
     public void inputUserPassword() {
         passowordField.sendKeys(USER_PASSWORD);

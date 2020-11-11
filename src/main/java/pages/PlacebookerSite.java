@@ -13,4 +13,6 @@ public class PlacebookerSite {
     public LoginPage loginPage() {
         return new LoginPage(webDriver);
     }
+
+    public MainPage mainPage() { return new MainPage(webDriver); }
 }
