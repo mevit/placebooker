@@ -21,6 +21,7 @@ public class SearchPlaceTest {
     private static final String SEARCHPLACE_PAGE_URL = "http://tc-workplace-booking-fe.s3-website.eu-central-1.amazonaws.com/search";
     private static final String CHROMEDRIVER_PATH = "D:\\Programs\\chromedriver\\chromedriver.exe";
     private static final String BOOKINGS_TITLE_SELECTOR = "[class=\"sc-jONnTn jIvnOH\"]";
+    private static final String SELECT_ROOM_BUTTON_SELECTOR = "[data-testid=\"select-room-btn\"]";
 
     @Before
     public void setUp() {
@@ -39,6 +40,10 @@ public class SearchPlaceTest {
         website.searchPlacePage().clickDatePicker();
         website.searchPlacePage().selectNextMonth();
         website.searchPlacePage().chooseRandomDate();
+        website.searchPlacePage().clickDeliveryPicker();
+        website.searchPlacePage().chooseRandomDelivery();
+        website.searchPlacePage().clickFilterButton();
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(SELECT_ROOM_BUTTON_SELECTOR)));
         website.searchPlacePage().chooseRandomRoom();
         website.searchPlacePage().chooseRandomPlace();
         website.searchPlacePage().clickBookButton();

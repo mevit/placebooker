@@ -61,6 +61,12 @@ public class SearchPlacePage {
         availablePlacesList.get(new Random().nextInt(availablePlacesList.size())).click();
     }
 
+    public void chooseRandomDelivery() {
+        List<WebElement> deliveriesList = webDriver.findElement(By.cssSelector("[class=\"Select__menu-list Select__menu-list--is-multi css-11unzgr\""))
+                .findElements(By.xpath(".//*"));
+        deliveriesList.get(new Random().nextInt(deliveriesList.size())).click();
+    }
+
     public void clickDatePicker() {
         datePicker.click();
     }
