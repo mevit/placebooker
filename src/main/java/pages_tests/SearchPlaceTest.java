@@ -51,9 +51,9 @@ public class SearchPlaceTest {
         Assert.assertEquals(BOOKINGS_PAGE_URL, webDriver.getCurrentUrl());
     }
 
-    @After
-    public void tearDown() {
-        if(webDriver != null)
-            webDriver.quit();
-    }
+//    @After
+//    public void tearDown() {
+//        if(webDriver != null)
+//            webDriver.quit();
+//    }
 }

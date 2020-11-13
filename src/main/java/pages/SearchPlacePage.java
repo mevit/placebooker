@@ -1,5 +1,6 @@
 package pages;
 
+import helpers.PagesHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,6 +13,7 @@ import java.util.Random;
 public class SearchPlacePage {
 
     private WebDriver webDriver;
+    private PagesHelper pagesHelper;
 
     private static final String DATEPICKER_MONTH_CLASS = "[class=\"react-datepicker__month\"]";
     private static final String DATEPICKER_WEEK_CLASS = "[class=\"react-datepicker__week\"]";
@@ -35,15 +37,11 @@ public class SearchPlacePage {
     public SearchPlacePage(WebDriver webDriver) {
         this.webDriver = webDriver;
         PageFactory.initElements(this.webDriver, this);
+        pagesHelper = new PagesHelper();
     }
 
     public void chooseRandomDate() {
-        ArrayList<WebElement> availableDaysInMonth = new ArrayList<WebElement>();
-        List<WebElement> allDaysInMonth = webDriver.findElement(By.cssSelector(DATEPICKER_MONTH_CLASS)).findElements(By.cssSelector(DATEPICKER_WEEK_CLASS));
-        for (WebElement webElement : allDaysInMonth) {
-            availableDaysInMonth.addAll(webElement.findElements(By.cssSelector(AVAILABLE_DAYS_SELECTOR)));
-        }
-        availableDaysInMonth.get(new Random().nextInt(availableDaysInMonth.size())).click();
+        pagesHelper.chooseRandomDate(webDriver, DATEPICKER_MONTH_CLASS, DATEPICKER_WEEK_CLASS, AVAILABLE_DAYS_SELECTOR);
     }
 
     public void chooseRandomRoom() {
