@@ -24,6 +24,12 @@ public class MainPage {
     @FindBy(css = "[aria-label=\"Next Month\"]")
     private WebElement nextMonthButton;
 
+    @FindBy(linkText = "WATCH ROOMS")
+    private WebElement userDeliveryButton;
+
+    @FindBy(linkText = "SELECT PLACE")
+    private WebElement userRoomButton;
+
     public MainPage(WebDriver webDriver) {
         this.webDriver = webDriver;
         PageFactory.initElements(this.webDriver, this);
@@ -45,4 +51,8 @@ public class MainPage {
     public void selectNextMonth() {
         nextMonthButton.click();
     }
+
+    public void clickUserDeliveryButton() { userDeliveryButton.click(); }
+
+    public void clickUserRoomButton() { userRoomButton.click(); }
 }

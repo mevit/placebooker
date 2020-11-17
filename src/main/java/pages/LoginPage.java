@@ -35,6 +35,12 @@ public class LoginPage {
     @FindBy(className = "VfPpkd-RLmnJb")
     private WebElement nextPasswordButton;
 
+    @FindBy(css = "[class=\"sc-kJFuea iwdYMG\"]")
+    private WebElement userInfoField;
+
+    @FindBy(css = "[data-testid=\"logout-btn\"]")
+    private WebElement logoutButton;
+
     public LoginPage(WebDriver webDriver) {
         this.webDriver = webDriver;
         webDriverWait = new WebDriverWait(webDriver, 15);
@@ -57,6 +63,15 @@ public class LoginPage {
 
     private void clickNextAfterPassword() {
         nextPasswordButton.click();
+    }
+
+    private void clickUserInfoField() { userInfoField.click(); }
+
+    private void clickLogoutButton() { logoutButton.click(); }
+
+    public void logout() {
+        clickUserInfoField();
+        clickLogoutButton();
     }
 
     public void login() {
